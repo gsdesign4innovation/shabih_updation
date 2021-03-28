@@ -436,6 +436,8 @@ background: rgba(0, 0, 0, 0.4);
 .portfolio-item-info a:hover {
     color: #212121;
     background-color: #fff;
+    height: 110%;
+    width:110%;
 }
 
 .section-portfolio .btn {
