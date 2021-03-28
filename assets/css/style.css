@@ -369,6 +369,10 @@ background: rgba(0, 0, 0, 0.4);
     height: 280px;
     margin-bottom: 30px;
     position: relative;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
 }
 
 .section-portfolio .col-md-4:nth-last-child(-n+3) .portfolio-item {
@@ -392,8 +396,7 @@ background: rgba(0, 0, 0, 0.4);
 
 .portfolio-item:hover:before{
     background-color: rgba(33,33,33,0.6);
-    height: 110%;
-    width:110%;
+    height: 320px;
 }
 
 .portfolio-item-info {
@@ -436,8 +439,6 @@ background: rgba(0, 0, 0, 0.4);
 .portfolio-item-info a:hover {
     color: #212121;
     background-color: #fff;
-    height: 110%;
-    width:110%;
 }
 
 .section-portfolio .btn {
