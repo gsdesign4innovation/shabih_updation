@@ -369,10 +369,10 @@ background: rgba(0, 0, 0, 0.4);
     height: 280px;
     margin-bottom: 30px;
     position: relative;
-    -webkit-transition: all 1s ease;
-    -moz-transition: all 1s ease;
-    -ms-transition: all 1s ease;
-    transition: all 1s ease;
+    -webkit-transition: all 0.25s ease;
+    -moz-transition: all 0.25s ease;
+    -ms-transition: all 0.25s ease;
+    transition: all 0.25s ease;
 }
 
 .section-portfolio .col-md-4:nth-last-child(-n+3) .portfolio-item {
@@ -397,7 +397,7 @@ background: rgba(0, 0, 0, 0.4);
 .portfolio-item:hover:before{
     background-color: rgba(33,33,33,0.6);
     height: 320px;
-    width:320px
+    width: 320px;
 }
 
 .portfolio-item-info {
@@ -416,6 +416,8 @@ background: rgba(0, 0, 0, 0.4);
 .portfolio-item:hover .portfolio-item-info {
     left: 50px;
     opacity: 1;
+    height: 320px;
+    width: 320px
 }
 
 .portfolio-item-info h4 {
