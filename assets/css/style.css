@@ -400,11 +400,11 @@ background: rgba(0, 0, 0, 0.4);
     left: 0px;
     z-index: 999;
     opacity: 0;
-    transition: opacity 0.25s ease-in-out, left 0.25s ease-in-out;
+    /*transition: opacity 0.25s ease-in-out, left 0.25s ease-in-out;
     -moz-transition: opacity 0.25s ease-in-out, left 0.25s ease-in-out;
     -webkit-transition: opacity 0.25s ease-in-out, left 0.25s ease-in-out;
     -o-transition: opacity 0.25s ease-in-out, left 0.25s ease-in-out;
-    -ms-transition: opacity 0.25s ease-in-out, left 0.25s ease-in-out;
+    -ms-transition: opacity 0.25s ease-in-out, left 0.25s ease-in-out;*/
 }
 
 .portfolio-item:hover .portfolio-item-info {
