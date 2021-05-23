@@ -383,11 +383,11 @@ background: rgba(0, 0, 0, 0.4);
     top: 0;
     left: 0;
     z-index: 1;
-    transition: background-color 0.25s ease-in-out;
+    /*transition: background-color 0.25s ease-in-out;
     -moz-transition: background-color 0.25s ease-in-out;
     -webkit-transition: background-color 0.25s ease-in-out;
     -o-transition: background-color 0.25s ease-in-out;
-    -ms-transition: background-color 0.25s ease-in-out;
+    -ms-transition: background-color 0.25s ease-in-out;*/
 }
 
 .portfolio-item:hover:before{
