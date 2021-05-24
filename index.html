@@ -431,19 +431,19 @@ ul li ul li {
                 <h3 style="color: #001a58;">Contact</h3>
                 <img src="https://dl.dropbox.com/s/y9d46d0dif4493a/lines.svg?dl=0" class="img-lines" alt="lines" style="width: 60px;">
                 <!--<img src="assets/img/lines.svg" class="img-lines" alt="lines">-->
-                <form>
+                <form action="" method="POST" id="registrationform" role="form" class="contactForm">
                     <div class="row">
                         <div class="col-sm-6">
-                            <input type="text" name="name" class="form-control mt-x-0" placeholder="Name" required>
+                            <input type="text" name="name" class="form-control mt-x-0" id="name" placeholder="Name" data-rule="minlen:4" required>
                         </div>
                         <div class="col-sm-6">
-                            <input type="email" name="email" class="form-control" placeholder="Email" required>   
+                            <input type="email" name="email" class="form-control" id="email" placeholder="Email" data-rule="email" required>   
                         </div>
                         <div class="col-sm-12">
-                            <textarea name="message" id="mesaage" class="form-control" placeholder="Message" required></textarea>
+                            <textarea name="password" id="password" class="form-control" placeholder="Message" required></textarea>
                         </div>
                     </div>
-                    <button href="#" class="btn btn-border" type="submit" >Hire Me <span class="glyphicon glyphicon-send"></span></button>
+                    <button href="#" class="btn btn-border" type="submit" sendMessage()>Hire Me <span class="glyphicon glyphicon-send"></span></button>
                 </form>
             </div>
         </section><!-- /.section-form -->
@@ -598,4 +598,231 @@ ul li ul li {
     <script src="assets/js/script.js"></script>
   
 </body>
+
+
+
+
+
+
+<!--firebase-->
+<script>
+
+ // Initialize Firebase(2)
+var config = {
+  apiKey: "AIzaSyCcpxgVwKlCBy6hJ8OjybpfWwjk0Qm7Ntk",
+    authDomain: "gsdesign-de7a4.firebaseapp.com",
+    databaseURL: "https://gsdesign-de7a4.firebaseio.com",
+    projectId: "gsdesign-de7a4",
+    storageBucket: "gsdesign-de7a4.appspot.com",
+    messagingSenderId: "443067344257",
+    appId: "1:443067344257:web:48f91217eac355c77f7480"
+};
+firebase.initializeApp(config);
+var database = firebase.database();
+
+//Reference for form collection(3)
+let formMessage = firebase.database().ref('register');
+
+//listen for submit event//(1)
+document
+  .getElementById('registrationform')
+  .addEventListener('submit', formSubmit);
+
+//Submit form(1.2)
+function formSubmit(e) {
+  e.preventDefault();
+  // Get Values from the DOM
+  let name = document.querySelector('#name').value;
+  let email = document.querySelector('#email').value;
+  let password = document.querySelector('#password').value;
+  //let bio = document.querySelector('#bio').value;
+  //let job = document.querySelector('#job').value;
+  //let interest = document.querySelector('#interest').value;
+
+  //send message values
+  sendMessage(name, email, password);//sendMessage(name, email, password, bio, job, interest);
+
+  //Show Alert Message(5)
+  document.querySelector('.alert').style.display = 'block';
+
+  //Hide Alert Message After Seven Seconds(6)
+  setTimeout(function() {
+    document.querySelector('.alert').style.display = 'none';
+  }, 7000);
+
+  //Form Reset After Submission(7)
+  document.getElementById('registrationform').reset();
+}
+
+//Send Message to Firebase(4)
+
+//function sendMessage(name, email, password, bio, job, interest) 
+function sendMessage(name, email, password){
+  let newFormMessage = formMessage.push();
+  newFormMessage.set({
+    name: name,
+    email: email,
+    password: password,
+    //bio: bio,
+    //job: job,
+    //Interest: interest
+  });
+}
+</script>
+
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+
+  firebase.initializeApp(firebaseConfig);
+</script>
+<script src=" https://gsdesign-de7a4.firebaseio.com/"></script>
+<body>
+  <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="/__/firebase/7.14.2/firebase-app.js"></script>
+
+  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+  <script src="/__/firebase/7.14.2/firebase-analytics.js"></script>
+
+  <!-- Add Firebase products that you want to use -->
+  <script src="/__/firebase/7.14.2/firebase-auth.js"></script>
+  <script src="/__/firebase/7.14.2/firebase-firestore.js"></script>
+</body>
+
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+<script src=" https://gsdesign-de7a4.firebaseio.com/"></script>
+<body>
+  <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="/__/firebase/7.14.2/firebase-app.js"></script>
+  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+  <script src="/__/firebase/7.14.2/firebase-analytics.js"></script>
+  <!-- Add Firebase products that you want to use -->
+  <script src="/__/firebase/7.14.2/firebase-auth.js"></script>
+  <script src="/__/firebase/7.14.2/firebase-firestore.js"></script>
+</body>
+<script src="https://www.gstatic.com/firebasejs/5.10.0/firebase.js"></script>
+  <script src="app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase.js"></script>
+  <script src="app.js"></script>
+
+
+<script>
+
+  firebase.initializeApp(firebaseConfig);
+</script>
+<script src=" https://gsdesign-de7a4.firebaseio.com/"></script>
+<body>
+  <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="/__/firebase/7.14.2/firebase-app.js"></script>
+
+  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+  <script src="/__/firebase/7.14.2/firebase-analytics.js"></script>
+
+  <!-- Add Firebase products that you want to use -->
+  <script src="/__/firebase/7.14.2/firebase-auth.js"></script>
+  <script src="/__/firebase/7.14.2/firebase-firestore.js"></script>
+</body>
+
+<!-- end of firebase -->
+
+
+<!-- Firebase -->
+<script>
+
+ // Initialize Firebase(2)
+var config = {
+  apiKey: "AIzaSyCcpxgVwKlCBy6hJ8OjybpfWwjk0Qm7Ntk",
+    authDomain: "gsdesign-de7a4.firebaseapp.com",
+    databaseURL: "https://gsdesign-de7a4.firebaseio.com",
+    projectId: "gsdesign-de7a4",
+    storageBucket: "gsdesign-de7a4.appspot.com",
+    messagingSenderId: "443067344257",
+    appId: "1:443067344257:web:48f91217eac355c77f7480"
+};
+firebase.initializeApp(config);
+var database = firebase.database();
+
+//Reference for form collection(3)
+let formMessage = firebase.database().ref('register');
+
+//listen for submit event//(1)
+document
+  .getElementById('registrationform')
+  .addEventListener('submit', formSubmit);
+
+//Submit form(1.2)
+function formSubmit(e) {
+  e.preventDefault();
+  // Get Values from the DOM
+  let name = document.querySelector('#name').value;
+  let email = document.querySelector('#email').value;
+  let password = document.querySelector('#password').value;
+  //let bio = document.querySelector('#bio').value;
+  //let job = document.querySelector('#job').value;
+  //let interest = document.querySelector('#interest').value;
+
+  //send message values
+  sendMessage(name, email, password);//sendMessage(name, email, password, bio, job, interest);
+
+  //Show Alert Message(5)
+  document.querySelector('.alert').style.display = 'block';
+
+  //Hide Alert Message After Seven Seconds(6)
+  setTimeout(function() {
+    document.querySelector('.alert').style.display = 'none';
+  }, 7000);
+
+  //Form Reset After Submission(7)
+  document.getElementById('registrationform').reset();
+}
+
+//Send Message to Firebase(4)
+
+//function sendMessage(name, email, password, bio, job, interest) 
+function sendMessage(name, email, password){
+  let newFormMessage = formMessage.push();
+  newFormMessage.set({
+    name: name,
+    email: email,
+    password: password,
+    //bio: bio,
+    //job: job,
+    //Interest: interest
+  });
+}
+</script>
+
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+
+ <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase.js"></script>
+  <script src="app.js"></script>
+
+
+<script src="https://www.gstatic.com/firebasejs/5.10.0/firebase.js"></script>
 </html>
